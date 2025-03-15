@@ -6,37 +6,22 @@ const Login = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
         setError("");
 
-        try {
-            // Send data to the backend (replace with your backend API URL)
-            const response = await fetch("http://your-backend-api.com/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                setError(data.message || "Login failed");
-                setLoading(false);
-                return;
+        // Simulating login process, you can add Redux logic here later
+        setTimeout(() => {
+            if (email === "test@example.com" && password === "password") {
+                // Handle successful login
+                console.log("Login successful");
+                // Redirect or store token logic here
+            } else {
+                setError("Invalid email or password");
             }
-
-            // Handle successful login
-            console.log("Login successful", data);
-            // You can redirect or handle the user data here, such as storing a token.
-
-        } catch (error) {
-            setError("An error occurred while logging in.");
             setLoading(false);
-        }
+        }, 1000);
     };
 
     return (
