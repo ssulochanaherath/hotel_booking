@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-
-    // Set your image path for the public folder
-    const backgroundImage = "/images/login-background.jpg";  // Path from the public folder
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,15 +26,8 @@ const Login = () => {
     };
 
     return (
-        <div
-            className="min-h-screen flex items-center justify-center p-4"
-            style={{
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}
-        >
-            <div className="w-full max-w-md bg-white bg-opacity-75 rounded-2xl shadow-xl p-8">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 p-4">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Login to Your Account</h2>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
