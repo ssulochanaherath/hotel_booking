@@ -2,7 +2,6 @@ import React from "react";
 import { Search, Star } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-// Simulated data for hotels
 const hotels = [
     {
         id: 1,
@@ -33,8 +32,7 @@ const hotels = [
 export default function Homepage() {
     const navigate = useNavigate();
 
-    // Simulate checking if the user is logged in
-    const isAuthenticated = true; // Replace this with your actual authentication check
+    const isAuthenticated = true;
 
     return (
         <div className="min-h-screen bg-gray-50 px-6 py-8">
