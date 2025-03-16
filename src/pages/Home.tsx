@@ -1,7 +1,8 @@
 import React from "react";
 import { Search, Star } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
+// Simulated data for hotels
 const hotels = [
     {
         id: 1,
@@ -30,6 +31,11 @@ const hotels = [
 ];
 
 export default function Homepage() {
+    const navigate = useNavigate();
+
+    // Simulate checking if the user is logged in
+    const isAuthenticated = true; // Replace this with your actual authentication check
+
     return (
         <div className="min-h-screen bg-gray-50 px-6 py-8">
             <header className="max-w-7xl mx-auto text-center mb-12">
@@ -51,7 +57,19 @@ export default function Homepage() {
                 </div>
             </header>
 
-            <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Only show "Go to Dashboard" button if user is logged in */}
+            {isAuthenticated && (
+                <div className="text-center mt-6">
+                    <button
+                        onClick={() => navigate("/dashboard")}
+                        className="bg-indigo-600 text-white py-2 px-6 rounded-xl hover:bg-indigo-700 transition"
+                    >
+                        Go to Dashboard
+                    </button>
+                </div>
+            )}
+
+            <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                 {hotels.map((hotel) => (
                     <div
                         key={hotel.id}
