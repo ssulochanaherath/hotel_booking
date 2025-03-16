@@ -1,5 +1,6 @@
 import React from "react";
 import { Search, Star } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const hotels = [
     {
@@ -67,9 +68,11 @@ export default function Homepage() {
                             </div>
                             <p className="text-sm text-gray-500 mb-2">{hotel.location}</p>
                             <p className="text-lg font-semibold text-indigo-600">{hotel.price}</p>
-                            <button className="mt-4 w-full bg-indigo-600 text-white py-2 rounded-xl hover:bg-indigo-700 transition">
-                                Book Now
-                            </button>
+                            <Link to={`/hotel/${hotel.id}`}>
+                                <button className="mt-4 w-full bg-indigo-600 text-white py-2 rounded-xl hover:bg-indigo-700 transition">
+                                    Book Now
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 ))}
