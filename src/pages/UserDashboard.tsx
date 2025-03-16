@@ -28,17 +28,13 @@ const bookings = [
 
 const UserDashboard = () => {
     const navigate = useNavigate();
-
-    // Handle canceling a booking
+    
     const handleCancelBooking = (bookingId) => {
         alert(`Booking with ID ${bookingId} has been canceled.`);
-        // Perform the cancellation logic here (e.g., API call)
     };
 
-    // Handle rescheduling a booking
     const handleRescheduleBooking = (bookingId) => {
         alert(`Booking with ID ${bookingId} has been rescheduled.`);
-        // Perform the rescheduling logic here (e.g., API call)
     };
 
     return (
