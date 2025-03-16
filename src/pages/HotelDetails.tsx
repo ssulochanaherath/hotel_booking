@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const hotels = [
     {
@@ -51,8 +51,8 @@ const hotels = [
 
 const HotelDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const hotel = hotels.find((h) => h.id === parseInt(id));
-
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     if (!hotel) {
@@ -79,6 +79,10 @@ const HotelDetails = () => {
         setCurrentImageIndex(index);
     };
 
+    const handleBooking = () => {
+        navigate(`/book/${hotel.id}`);
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 px-6 py-8">
             <div className="max-w-7xl mx-auto">
@@ -89,7 +93,6 @@ const HotelDetails = () => {
                             alt={hotel.name}
                             className="w-full h-80 object-cover"
                         />
-                        {/* Arrow Buttons */}
                         <button
                             onClick={handlePrevImage}
                             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 p-2 rounded-full shadow-md hover:bg-indigo-600 hover:text-white transition"
@@ -102,8 +105,6 @@ const HotelDetails = () => {
                         >
                             &gt;
                         </button>
-
-                        {/* Dots Below Image (positioned over the image) */}
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                             {hotel.images.map((_, index) => (
                                 <span
@@ -128,9 +129,7 @@ const HotelDetails = () => {
                                     viewBox="0 0 20 20"
                                     className="w-6 h-6"
                                 >
-                                    <path
-                                        d="M9.049 3.927c-.3-.92-1.627-.92-1.926 0L6.4 6.347l-1.444-.207a1.002 1.002 0 0 0-.559 1.775l1.038.966-.246 1.467c-.084.493.409.876.823.642L9.5 8.61l1.32.696c.414.223.907-.149.823-.642l-.246-1.467 1.038-.966a1.002 1.002 0 0 0-.559-1.775l-1.444.207-.723-2.42z"
-                                    />
+                                    <path d="M9.049 3.927c-.3-.92-1.627-.92-1.926 0L6.4 6.347l-1.444-.207a1.002 1.002 0 0 0-.559 1.775l1.038.966-.246 1.467c-.084.493.409.876.823.642L9.5 8.61l1.32.696c.414.223.907-.149.823-.642l-.246-1.467 1.038-.966a1.002 1.002 0 0 0-.559-1.775l-1.444.207-.723-2.42z" />
                                 </svg>
                                 <span className="text-sm font-medium text-gray-700">
                                     {hotel.rating}
@@ -155,7 +154,10 @@ const HotelDetails = () => {
                         </div>
 
                         <div className="mt-6">
-                            <button className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition">
+                            <button
+                                onClick={handleBooking}
+                                className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition"
+                            >
                                 Book Now
                             </button>
                         </div>
