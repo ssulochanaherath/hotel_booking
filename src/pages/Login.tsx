@@ -1,28 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate(); // ← You forgot to define this in your code earlier
 
-    // Set your image path for the public folder
-    const backgroundImage = "/images/login-background.jpg";  // Path from the public folder
+    const backgroundImage = "/images/login-background.jpg";
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-        setError("");
 
-        // Simulating login process, you can add Redux logic here later
+        // Just simulate a loading delay then navigate
         setTimeout(() => {
-            if (email === "test@example.com" && password === "password") {
-                // Handle successful login
-                console.log("Login successful");
-                // Redirect or store token logic here
-            } else {
-                setError("Invalid email or password");
-            }
+            navigate("/home");
             setLoading(false);
         }, 1000);
     };
@@ -61,7 +54,6 @@ const Login = () => {
                             className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         />
                     </div>
-                    {error && <p className="text-red-500 text-sm text-center">{error}</p>}
                     <button
                         type="submit"
                         className={`w-full ${loading ? "bg-gray-400" : "bg-indigo-600"} text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300`}
