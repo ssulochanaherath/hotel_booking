@@ -5,6 +5,7 @@ import {RootLayout} from "./components/RootLayout.tsx";
 import Signup from "./pages/Signup.tsx";
 import Home from "./pages/Home.tsx";
 import HotelDetails from "./pages/HotelDetails.tsx";
+import BookingPage from "./pages/Booking.tsx";
 
 function App() {
     const router = createBrowserRouter([
@@ -17,6 +18,7 @@ function App() {
                 { path: "/signup", element: <Signup /> },
                 { path: "/home", element: <Home /> },
                 { path: "/hotel/:id", element: <HotelDetails /> },
+                { path: "/book/:id", element: <BookingPage /> },
             ],
         },
     ]);
