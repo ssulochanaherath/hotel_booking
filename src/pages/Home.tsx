@@ -9,7 +9,7 @@ const hotels = [
         location: "Maldives",
         rating: 4.8,
         price: "$299/night",
-        image: "https://source.unsplash.com/800x600/?resort,beach",
+        image: "/images/login-background.jpg",
     },
     {
         id: 2,
