@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 const hotels = [
@@ -8,9 +8,14 @@ const hotels = [
         location: "Maldives",
         rating: 4.8,
         price: "$299/night",
-        description: "A luxurious resort in the Maldives, perfect for relaxation and adventure.",
+        description:
+            "A luxurious resort in the Maldives, perfect for relaxation and adventure.",
         amenities: ["Free Wi-Fi", "Ocean View", "Spa", "Private Pool"],
-        image: "https://source.unsplash.com/800x600/?resort,beach",
+        images: [
+            "/images/login-background.jpg",
+            "/images/palm.jpg",
+            "https://source.unsplash.com/800x600/?resort,pool",
+        ],
     },
     {
         id: 2,
@@ -18,9 +23,14 @@ const hotels = [
         location: "New York",
         rating: 4.5,
         price: "$199/night",
-        description: "A modern hotel with stunning views of New York City, ideal for city exploration.",
+        description:
+            "A modern hotel with stunning views of New York City, ideal for city exploration.",
         amenities: ["Free Wi-Fi", "24/7 Room Service", "Gym", "Bar"],
-        image: "https://source.unsplash.com/800x600/?hotel,city",
+        images: [
+            "https://source.unsplash.com/800x600/?hotel,city",
+            "https://source.unsplash.com/800x600/?hotel,night",
+            "https://source.unsplash.com/800x600/?hotel,luxury",
+        ],
     },
     {
         id: 3,
@@ -28,15 +38,22 @@ const hotels = [
         location: "Switzerland",
         rating: 4.7,
         price: "$249/night",
-        description: "A cozy retreat in the Swiss Alps, offering breathtaking mountain views.",
+        description:
+            "A cozy retreat in the Swiss Alps, offering breathtaking mountain views.",
         amenities: ["Free Wi-Fi", "Mountain View", "Restaurant", "Ski Access"],
-        image: "https://source.unsplash.com/800x600/?mountain,resort",
+        images: [
+            "https://source.unsplash.com/800x600/?mountain,resort",
+            "https://source.unsplash.com/800x600/?mountain,ski",
+            "https://source.unsplash.com/800x600/?mountain,luxury",
+        ],
     },
 ];
 
 const HotelDetails = () => {
     const { id } = useParams();
     const hotel = hotels.find((h) => h.id === parseInt(id));
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     if (!hotel) {
         return (
@@ -46,15 +63,61 @@ const HotelDetails = () => {
         );
     }
 
+    const handleNextImage = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === hotel.images.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const handlePrevImage = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === 0 ? hotel.images.length - 1 : prevIndex - 1
+        );
+    };
+
+    const handleDotClick = (index) => {
+        setCurrentImageIndex(index);
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 px-6 py-8">
             <div className="max-w-7xl mx-auto">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                        src={hotel.image}
-                        alt={hotel.name}
-                        className="w-full h-80 object-cover"
-                    />
+                    <div className="relative">
+                        <img
+                            src={hotel.images[currentImageIndex]}
+                            alt={hotel.name}
+                            className="w-full h-80 object-cover"
+                        />
+                        {/* Arrow Buttons */}
+                        <button
+                            onClick={handlePrevImage}
+                            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 p-2 rounded-full shadow-md hover:bg-indigo-600 hover:text-white transition"
+                        >
+                            &lt;
+                        </button>
+                        <button
+                            onClick={handleNextImage}
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 p-2 rounded-full shadow-md hover:bg-indigo-600 hover:text-white transition"
+                        >
+                            &gt;
+                        </button>
+
+                        {/* Dots Below Image (positioned over the image) */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                            {hotel.images.map((_, index) => (
+                                <span
+                                    key={index}
+                                    onClick={() => handleDotClick(index)}
+                                    className={`w-3 h-3 rounded-full cursor-pointer ${
+                                        index === currentImageIndex
+                                            ? "bg-indigo-600"
+                                            : "bg-gray-400"
+                                    }`}
+                                ></span>
+                            ))}
+                        </div>
+                    </div>
                     <div className="p-6">
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-3xl font-bold text-gray-800">{hotel.name}</h2>
@@ -70,8 +133,8 @@ const HotelDetails = () => {
                                     />
                                 </svg>
                                 <span className="text-sm font-medium text-gray-700">
-                  {hotel.rating}
-                </span>
+                                    {hotel.rating}
+                                </span>
                             </div>
                         </div>
                         <p className="text-xl text-gray-600 mb-4">{hotel.location}</p>
