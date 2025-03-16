@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// Simulated user data and bookings
 const userData = {
     name: "John Doe",
     email: "john@example.com",
