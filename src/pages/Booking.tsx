@@ -85,7 +85,7 @@ const BookingPage = () => {
                         onClick={handleBooking}
                         className="w-full bg-indigo-600 text-white font-semibold py-3 rounded-xl hover:bg-indigo-700 hover:scale-[1.02] transition duration-300 ease-in-out shadow-md hover:shadow-xl"
                     >
-                        ✅ Confirm Booking
+                        Confirm Booking
                     </button>
                 </div>
             </div>
