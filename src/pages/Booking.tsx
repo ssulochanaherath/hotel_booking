@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CalendarDays, Users, BedDouble } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const BookingPage = () => {
     const [checkIn, setCheckIn] = useState(null);
@@ -9,8 +10,11 @@ const BookingPage = () => {
     const [guests, setGuests] = useState(1);
     const [rooms, setRooms] = useState(1);
 
+    const navigate = useNavigate();
+
     const handleBooking = () => {
         alert("🎉 Booking Confirmed!");
+        navigate("/home");
     };
 
     return (
