@@ -5,7 +5,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate(); // ← You forgot to define this in your code earlier
+    const navigate = useNavigate();
 
     const backgroundImage = "/images/login-background.jpg";
 
@@ -13,7 +13,6 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
 
-        // Just simulate a loading delay then navigate
         setTimeout(() => {
             navigate("/home");
             setLoading(false);
