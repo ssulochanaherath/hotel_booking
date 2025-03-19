@@ -17,7 +17,7 @@ const hotels = [
         location: "New York",
         rating: 4.5,
         price: "$199/night",
-        image: "https://source.unsplash.com/800x600/?hotel,city",
+        image: "/images/skyline1.jpg",
     },
     {
         id: 3,
@@ -25,13 +25,13 @@ const hotels = [
         location: "Switzerland",
         rating: 4.7,
         price: "$249/night",
-        image: "https://source.unsplash.com/800x600/?mountain,resort",
+        image: "/images/mountain1.jpg",
     },
 ];
 
 export default function Homepage() {
     const navigate = useNavigate();
-    const isAuthenticated = true; 
+    const isAuthenticated = true;
 
     return (
         <div className="relative min-h-screen bg-gradient-to-br from-white to-gray-100 px-4 py-10">
