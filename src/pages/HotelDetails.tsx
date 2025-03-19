@@ -13,8 +13,8 @@ const hotels = [
         amenities: ["Free Wi-Fi", "Ocean View", "Spa", "Private Pool"],
         images: [
             "/images/login-background.jpg",
-            "/images/palm.jpg",
-            "https://source.unsplash.com/800x600/?resort,pool",
+            "/images/palm-resort1.jpg",
+            "/images/palm-resort2.jpg",
         ],
     },
     {
@@ -27,9 +27,9 @@ const hotels = [
             "A modern hotel with stunning views of New York City, ideal for city exploration.",
         amenities: ["Free Wi-Fi", "24/7 Room Service", "Gym", "Bar"],
         images: [
-            "https://source.unsplash.com/800x600/?hotel,city",
-            "https://source.unsplash.com/800x600/?hotel,night",
-            "https://source.unsplash.com/800x600/?hotel,luxury",
+            "/images/skyline1.jpg",
+            "/images/skyline2.jpg",
+            "/images/skyline3.jpg",
         ],
     },
     {
@@ -42,9 +42,9 @@ const hotels = [
             "A cozy retreat in the Swiss Alps, offering breathtaking mountain views.",
         amenities: ["Free Wi-Fi", "Mountain View", "Restaurant", "Ski Access"],
         images: [
-            "https://source.unsplash.com/800x600/?mountain,resort",
-            "https://source.unsplash.com/800x600/?mountain,ski",
-            "https://source.unsplash.com/800x600/?mountain,luxury",
+            "/images/mountain1.jpg",
+            "/images/mountain2.jpg",
+            "/images/mountain3.jpg",
         ],
     },
 ];
