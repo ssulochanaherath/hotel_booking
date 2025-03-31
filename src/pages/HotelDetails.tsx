@@ -4,12 +4,12 @@ import { useParams, useNavigate } from "react-router-dom";
 const hotels = [
     {
         id: 1,
-        name: "The Palm Resort",
-        location: "Maldives",
+        name: "Reagency",
+        location: "Kandy",
         rating: 4.8,
         price: "$299/night",
         description:
-            "A luxurious resort in the Maldives, perfect for relaxation and adventure.",
+            "A luxurious resort in the Kandy, perfect for relaxation and adventure.",
         amenities: ["Free Wi-Fi", "Ocean View", "Spa", "Private Pool"],
         images: [
             "/images/login-background.jpg",
@@ -19,12 +19,12 @@ const hotels = [
     },
     {
         id: 2,
-        name: "Skyline Hotel",
-        location: "New York",
+        name: "Grand Kandyan",
+        location: "Kandy",
         rating: 4.5,
         price: "$199/night",
         description:
-            "A modern hotel with stunning views of New York City, ideal for city exploration.",
+            "A modern hotel with stunning views of Kandy City, ideal for city exploration.",
         amenities: ["Free Wi-Fi", "24/7 Room Service", "Gym", "Bar"],
         images: [
             "/images/skyline1.jpg",
@@ -34,12 +34,12 @@ const hotels = [
     },
     {
         id: 3,
-        name: "Mountain Escape",
-        location: "Switzerland",
+        name: "Queens Hotel",
+        location: "Kandy",
         rating: 4.7,
         price: "$249/night",
         description:
-            "A cozy retreat in the Swiss Alps, offering breathtaking mountain views.",
+            "A cozy retreat in the Hanthana Mountain, offering breathtaking mountain views.",
         amenities: ["Free Wi-Fi", "Mountain View", "Restaurant", "Ski Access"],
         images: [
             "/images/mountain1.jpg",
